@@ -1,6 +1,6 @@
 package com.tma.picalculator.web.exception;
 
-public class CustomGenericException extends RuntimeException{
+public class PiCalculatorException extends RuntimeException{
 
 	private static final long serialVersionUID = -8540120964105124022L;
 
@@ -23,7 +23,7 @@ public class CustomGenericException extends RuntimeException{
 		this.errMsg = errMsg;
 	}
 
-	public CustomGenericException(String errCode, String errMsg) {
+	public PiCalculatorException(String errCode, String errMsg) {
 		this.errCode = errCode;
 		this.errMsg = errMsg;
 	}

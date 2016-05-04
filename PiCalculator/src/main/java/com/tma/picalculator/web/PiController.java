@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tma.picalculator.domain.PiModel;
 import com.tma.picalculator.service.PiCalculatorService;
-import com.tma.picalculator.web.exception.CustomGenericException;
+import com.tma.picalculator.web.exception.PiCalculatorException;
 
 @Controller
 public class PiController {
@@ -42,19 +42,13 @@ public class PiController {
 		return "getPi";
 	}
 
-	/*
-	 * @ExceptionHandler(Exception.class) public ModelAndView
-	 * handleAllException(Exception ex) { ModelAndView model = new
-	 * ModelAndView("test"); model.addObject("errMsg", ex.getMessage()); return
-	 * model; }
-	 */
 	/**
-	 * Handles CustomGenericException
+	 * Handles PiCalculatorException
 	 * @param e Thrown exception while processing PI
 	 * @return binds error message and return to error page
 	 */
-	@ExceptionHandler(CustomGenericException.class)
-	public ModelAndView handleDeleteException(CustomGenericException ex) {
+	@ExceptionHandler(PiCalculatorException.class)
+	public ModelAndView handleGetPiException(PiCalculatorException ex) {
 	    ModelMap model = new ModelMap();
 	    model.put("errMsg", ex.getMessage());
 	    return new ModelAndView("getPi", model);
